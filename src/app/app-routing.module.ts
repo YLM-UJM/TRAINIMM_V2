@@ -10,6 +10,14 @@ const routes: Routes = [
     //canLoad: [LoginGuard]
   },
   {
+    path: 'confidentialite',
+    loadChildren: () => import('./confidentialite/confidentialite.module').then( m => m.ConfidentialitePageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./parametres/contact/contact.module').then( m => m.ContactPageModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
     canLoad: [LoginGuard]
@@ -22,7 +30,7 @@ const routes: Routes = [
   {
     path: 'hebdomadaire',
     loadChildren: () => import('./hebdomadaire/hebdomadaire.module').then( m => m.HebdomadairePageModule),
-    canLoad: [LoginGuard]
+   canLoad: [LoginGuard]
   },
   {
     path: 'surentrainement',
@@ -37,16 +45,13 @@ const routes: Routes = [
   {
     path: 'sommeil',
     loadChildren: () => import('./sommeil/sommeil.module').then( m => m.SommeilPageModule),
-    canLoad: [LoginGuard]
+   ///canLoad: [LoginGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'contact',
-    loadChildren: () => import('./parametres/contact/contact.module').then( m => m.ContactPageModule)
-  },
+
   {
     path: 'instructions',
     loadChildren: () => import('./parametres/instructions/instructions.module').then( m => m.InstructionsPageModule)
@@ -54,7 +59,8 @@ const routes: Routes = [
   {
     path: 'activites',
     loadChildren: () => import('./activites/activites.module').then( m => m.ActivitesPageModule)
-  }
+  },
+
 ];
 @NgModule({
   imports: [
