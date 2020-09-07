@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>hebdomadaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor='let question of questions; let i = index'>
+    <ion-list-header  >
+      <ion-label id="sous_sous_titre" class='ion-text-center'>
+        <b>{{i + 1}}. {{question.text}}</b>
+      </ion-label>
+    </ion-list-header>
+
+    <ng-container *ngIf="question.type == 'datetime'">
+      <ion-item class='ion-text-center'>
+        <!-- <ion-label><b>{{question.text}}</b></ion-label> -->
+        <ion-datetime doneText="OK" cancelText="Annuler" i18n displayFormat="DD/MM/YYYY HH:mm" pickerFormat="MMM D HH:mm" [(ngModel)]="question.time" name="{{question.time}}" (ionFocus)="focus($event)"></ion-datetime>
+      </ion-item>
+
+    </ng-container>
+
+
+  
+    <ng-container *ngIf="question.type == 'singleChoice'" >
+      <ion-radio-group
+      
+      [(ngModel)]="question.answer"
+      name="question.answer"
+      >
+      <h6 class='subtitle' text-center>{{question.subtitle}}</h6>
+        <ion-item *ngFor='let item of question.items'>
+          <ion-label style="margin-right: 10px;">{{item.text}}</ion-label>
+          <ion-radio mode='md'  value={{item.text}}></ion-radio>
+          <ion-input *ngIf="item.text == 'Autre'" type="{{item.other.type}}" placeholder="{{item.other.placeholder}}" required=true style="z-index: 1000;" [(ngModel)]="item.other.answer" name="item.other.answer"></ion-input>
+        </ion-item>
+    
+    
+      </ion-radio-group>
+    </ng-container>
+
+    <ng-container *ngIf="question.type == 'rating'" >
+      <h6 class='subtitle' text-center>{{question.subtitle}}</h6>
+      <ion-item  >
+        <ion-range mode='md'  min="{{question.min}}" max="{{question.max}}" step="{{question.step}}"  color="primary" pin="true"  [(ngModel)]="question.answer" name="question.answer" (ionFocus)="focus(question.id)">
+          <ion-label slot="start">{{question.precisionMin}}</ion-label>
+          <ion-label slot="end">{{question.precisionMax}}</ion-label>
+        </ion-range>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="question.type == 'temps'" >
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-input [(ngModel)]="question.h" name="question.h" type="number" placeholder='heure(s)'></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input [(ngModel)]="question.mn" name="question.mn" type='number' placeholder='minute(s)'></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="question.type == 'singleInput'" >
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-input [(ngModel)]="question.answer" name="question.answer" type="number" placeholder={{question.placeholder}}></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ng-container>
+
+
+  </ion-list>
+
+  <ion-button (click)="addEvent()" color="primary" expand="block">Valider</ion-button>
+
+</ion-content>

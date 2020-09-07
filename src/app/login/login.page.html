@@ -1,0 +1,158 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+
+
+<ion-content  style="overflow: hidden;">
+
+
+  <h2>TRAINIMM</h2>
+
+
+
+
+
+<ion-card>
+  <ion-list *ngIf="login">
+
+    <ion-item class="ion-text-center">
+      <!-- <ion-label><b>Email</b></ion-label> -->
+      <ion-input placeholder="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  
+    <ion-item class='ion-text-center'>
+      <!-- <ion-label><b>Mot de passe</b></ion-label> -->
+      <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+</ion-card>
+
+      <!-- <ion-row>
+        <ion-col>
+          <div class='actifs'>
+            <img src="./../../assets/logos.png">
+          </div>
+  
+        </ion-col>
+
+      </ion-row> -->
+  
+      <!-- <ion-row>
+        <ion-item style="text-align:center; padding:20px">
+          Étude proposée par le Laboratoire Interuniversitaire de la Biologie et de le Motricité (LIBM) de l'Université Jean Monnet - Saint Etienne
+        </ion-item>
+      </ion-row> -->
+
+      <div *ngIf="register">
+      <ion-card class='register'>
+    
+
+    
+        <ion-list class='ion-text-center'>
+    
+          <ion-item class='ion-text-center' >
+            <!-- <ion-label class='ion-text-wrap'><b>Nom</b>  </ion-label> -->
+            <ion-input placeholder="nom" type="text" [(ngModel)]="nom"></ion-input>
+          </ion-item>
+      
+          <ion-item class='ion-text-center' >
+            <!-- <ion-label class='ion-text-wrap'> <b>Prénom</b> </ion-label> -->
+            <ion-input placeholder="prénom" type="text" [(ngModel)]="prenom"></ion-input>
+          </ion-item>
+      
+          <ion-item class='ion-text-center' >
+            <ion-label class='ion-text-wrap'>Sexe</ion-label>
+              <ion-select [(ngModel)]="sexe">
+                <ion-select-option value="homme">Homme</ion-select-option>
+                <ion-select-option value="femme">Femme</ion-select-option>
+                <ion-select-option value="autre">Autre</ion-select-option>
+              </ion-select>
+          </ion-item>
+
+      
+          <ion-item class='ion-text-center'>
+            <!-- <ion-label class='ion-text-wrap'> <b>Email</b> </ion-label> -->
+            <ion-input placeholder="email" type="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+  
+          <ion-item class='ion-text-center'>
+            <!-- <ion-label class='ion-text-wrap'><b>Confirmer email </b> </ion-label> -->
+            <ion-input placeholder="retaper email" type="email" [(ngModel)]="confirm_email"></ion-input>
+          </ion-item>
+        
+          <ion-item class='ion-text-center'>
+            <!-- <ion-label class='ion-text-wrap'> <b>Mot de passe</b> </ion-label> -->
+            <ion-input placeholder="mot de passe" type="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+      
+          <ion-item class='ion-text-center' >
+            <!-- <ion-label class='ion-text-wrap'> <b>Confirmer le mot de passe</b> </ion-label> -->
+            <ion-input placeholder="retaper mot de passe" type="password" [(ngModel)]="confirm_password"></ion-input>
+          </ion-item>
+      
+        
+        </ion-list>
+
+      </ion-card>
+
+      
+        <div padding>
+          <span color='light' *ngIf="register" (click)="comeBackToLogin()" class='forgotPassword'>Se connecter ?</span>
+          <ion-button color='light' *ngIf="register" [disabled]="!email" expand="block" shape="round" (click)="addRegister()">Valider</ion-button>
+
+        </div>
+    
+      </div>
+
+  
+      <div *ngIf="forgot">
+    
+        <ion-card class='forgot'>
+        <ion-item>
+          <!-- <ion-label><b>Email</b></ion-label> -->
+          <ion-input placeholder="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+      </ion-card>
+      
+        <span color='light' (click)="comeBackToLogin()" class='forgotPassword'>Se connecter ?</span>
+        <ion-button color='light' expand="block" shape="round" (click)="forgotPassword()" >Envoyer</ion-button>
+    
+    
+    
+      </div>
+   
+    
+    
+      <div *ngIf="login" padding>
+        <span color='light' (click)="goToForgotPassword()" class='forgotPassword'>Mot de passe oublié ?</span>
+        <ion-button color="light" *ngIf="login" [disabled]="!email && !password" expand="block" shape="round" (click)="authenticate()" >Se connecter</ion-button>
+        <ion-button color='light' expand="block" shape="round" (click)="formRegister()">S'inscrire</ion-button>
+    
+      </div>
+  
+  
+  
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer>
+  <img class='image-footer' src="assets/logos.png">
+</ion-footer>
+
+<!-- Footer without a border -->
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar text-wrap>
+
+    <ion-title id="footer" text-wrap style="text-transform: none"> Développé par Yann Le Mat - LIBM</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

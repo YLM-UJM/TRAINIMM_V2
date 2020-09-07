@@ -1,0 +1,40 @@
+// // grand ecran
+// @media screen and (min-width: 601px) {
+//     a {
+//         position: relative;
+//     //float: left;
+//     //top: 50%;
+//     //left: 50%;
+//     transform: translate(-50%, -50%);
+//     font-size: 3vw;
+//     text-align:center;
+//     display:block;
+//     }
+//   }
+
+//   // smartphone
+//   @media screen and (max-width: 601px) {
+//     a {
+//         position: relative;
+//     //float: left;
+//     text-align:center;
+//     display:block;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     font-size: 7vw;
+//     }
+
+//     ion-title {
+//         color: white; 
+//         text-align: center;
+
+//         padding-left: 0px;
+//         padding-right: 40px;
+//     }
+
+//   }
+
+ion-card{
+    font-size:2em;
+}

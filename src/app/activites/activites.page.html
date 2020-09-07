@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>activites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button *ngIf="stravaButton"  href="http://www.strava.com/oauth/authorize?client_id=46746&response_type=code&redirect_uri=https://trainimm.univ-st-etienne.fr/tabs/activites&approval_prompt=force&scope=activity:read">
+    Se connecter avec Strava
+  </ion-button>
+  
+  <ion-card *ngIf="loading" class='ion-text-center'>
+    <ion-spinner ></ion-spinner>
+  </ion-card>
+
+  <ion-card *ngFor="let act of activities">
+    <ion-card-title>{{act.name}} - {{act.distance}}m - {{act.start_date}}</ion-card-title>
+  </ion-card>
+
+</ion-content>

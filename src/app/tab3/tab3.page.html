@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      QUESTIONNAIRES
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+
+    <div (click)="goToHebdomadaire()" class="image-box" style="--image-url:url('assets/trail.jpg')">
+      <h1>HEBDOMADAIRE <br/> <h6 style='text-align:center; font-style:italic'>tous les dimanches</h6></h1>
+
+      <!-- SOMMEIL -->
+    </div>
+    <div (click)="goToSommeil()" class="image-box" style="--image-url:url('assets/sommeil.jpg')">
+      <h1 style='text-align:center'>SOMMEIL <br/> <h6 style='text-align:center; font-style:italic'>à minima le mercredi et le dimanche - si possible tous les jours</h6></h1>
+      <!-- SF36 -->
+    </div>
+
+    <div (click)="goToSurentrainement()" class="image-box" style="--image-url:url('assets/surentrainement.jpg')">
+      <h1 style='text-align:center'>SURENTRAINEMENT <br/> <h6 style='text-align:center; font-style:italic'>à remplir tous les 1er dimanche de chaque mois</h6></h1>
+      <!-- SF36 -->
+    </div>
+
+    <div (click)="goToBlessure()" class="image-box" style="--image-url:url('assets/blessure.jpg')">
+      <h1 style='text-align:center'>BLESSURE <br/> <h6 style='text-align:center; font-style:italic'>à remplir seulement si blessure</h6></h1>
+      <!-- SF36 -->
+    </div>
+
+  </ion-list>
+</ion-content>
