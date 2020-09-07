@@ -110,6 +110,7 @@ export class ActivitesPage implements OnInit {
           } else {
             console.log('token still valid')
             this.http.get('https://www.strava.com/api/v3/athlete/activities' + '?access_token=' + access_token + '&per_page=200').subscribe(resData => {
+              console.log(resData);
               this.activities = resData;  
               this.display = true;
               this.loading = false;
